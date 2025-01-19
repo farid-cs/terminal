@@ -12,6 +12,10 @@ main(void)
 
 	while (!WindowShouldClose()) {
 		BeginDrawing();
+
+		ClearBackground(RAYWHITE);
+		DrawText("Hello World!", 0, 0, 30, BLACK);
+
 		EndDrawing();
 	}
 
