@@ -1,9 +1,10 @@
+CFLAGS = -std=c99 -pedantic -Wall -Wextra
 LDFLAGS = -lraylib
 
 all: terminal
 
 terminal: terminal.c
-	${CC} -o $@ $< ${LDFLAGS}
+	${CC} ${CFLAGS} -o $@ $< ${LDFLAGS}
 
 clean:
 	rm terminal
