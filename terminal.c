@@ -1,7 +1,7 @@
 #include <raylib.h>
 #include <stdlib.h>
 
-static const char WINDOW_NAME[] = "terminal"; 
+static const char WINDOW_NAME[] = "terminal";
 static const int WINDOW_WIDTH = 1600;
 static const int WINDOW_HEIGHT = 1200;
 
