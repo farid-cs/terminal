@@ -1,3 +1,5 @@
+#!/bin/python3
+
 import pyray as rl
 
 WINDOW_TITLE = 'terminal'
