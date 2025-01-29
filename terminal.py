@@ -1,9 +1,10 @@
 #!/bin/env python3
 
 import pyray as rl
-import subprocess
-import pty
+
 import os
+import pty
+import subprocess
 
 WINDOW_TITLE = 'terminal'
 WINDOW_WIDTH = 1600
