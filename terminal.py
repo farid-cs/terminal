@@ -10,7 +10,7 @@ WINDOW_TITLE = 'terminal'
 WINDOW_WIDTH = 1600
 WINDOW_HEIGHT = 1200
 
-def main():
+def start_terminal():
     pid, fd = pty.fork()
 
     if pid == 0:
@@ -30,4 +30,4 @@ def main():
         rl.end_drawing()
 
 if __name__ == '__main__':
-    main()
+    start_terminal()
