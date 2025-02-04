@@ -29,5 +29,7 @@ def start_terminal():
 
         rl.end_drawing()
 
+    rl.close_window()
+
 if __name__ == '__main__':
     start_terminal()
