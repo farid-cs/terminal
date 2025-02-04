@@ -15,7 +15,7 @@ def start_terminal():
 
     if pid == 0:
         subprocess.run(['printf', 'Hello from child process!'])
-        return
+        exit()
 
     message = os.read(fd, 1024)
 
