@@ -20,9 +20,9 @@ def start_terminal():
     if pid == 0:
         # simulate work
         time.sleep(2)
-        subprocess.run(['printf', 'Hello from child process!'])
+        subprocess.run(['printf', 'Hello from child process!\n'])
         time.sleep(2)
-        subprocess.run(['printf', ' How are you?'])
+        subprocess.run(['printf', 'How are you?\n'])
         time.sleep(2)
 
         # cleanup
@@ -40,7 +40,7 @@ def start_terminal():
         rl.begin_drawing()
 
         rl.clear_background(rl.RAYWHITE)
-        rl.draw_text(message.decode(), 0, 0, 30, rl.BLACK)
+        rl.draw_text(message.decode().replace('\r', ''), 0, 0, 30, rl.BLACK)
 
         rl.end_drawing()
 
