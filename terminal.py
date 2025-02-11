@@ -6,6 +6,7 @@ import errno
 import os
 import platform
 import pty
+import selectors
 import subprocess
 import sys
 import time
@@ -19,10 +20,9 @@ def start_terminal():
 
     if pid == 0:
         # simulate work
-        time.sleep(2)
         subprocess.run(['printf', 'Hello from child process!\n'])
-        time.sleep(2)
         subprocess.run(['printf', 'How are you?\n'])
+        subprocess.run(['printf', 'Bye!'])
         time.sleep(2)
 
         # cleanup
@@ -32,6 +32,8 @@ def start_terminal():
 
         exit()
 
+    sel = selectors.DefaultSelector()
+    sel.register(fd, selectors.EVENT_READ)
     message = b''
 
     rl.init_window(WINDOW_WIDTH, WINDOW_HEIGHT, WINDOW_TITLE)
@@ -45,7 +47,8 @@ def start_terminal():
         rl.end_drawing()
 
         try:
-            message += os.read(fd, 1024)
+            if len(sel.select(0.1)) > 0:
+                    message += os.read(fd, 1024)
         except OSError as err:
             if err.errno == errno.EIO and platform.system() == 'Linux':
                 break
