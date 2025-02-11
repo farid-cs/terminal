@@ -42,7 +42,7 @@ def start_terminal():
         rl.begin_drawing()
 
         rl.clear_background(rl.RAYWHITE)
-        rl.draw_text(message.decode().replace('\r', ''), 0, 0, 30, rl.BLACK)
+        rl.draw_text(message.decode().replace('\r\n', '\n'), 0, 0, 30, rl.BLACK)
 
         rl.end_drawing()
 
